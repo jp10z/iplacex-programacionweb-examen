@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.button {
+  font-size: 18px;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  height: 140px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration:none;
+}
+
+.button-ejercicio1 {
+  background-color: #a91cc6;
+}
+
+.button-ejercicio1:hover {
+  background-color: #840a9c;
+}
+
+.button-ejercicio2 {
+  background-color: #73be23;
+}
+
+.button-ejercicio2:hover {
+  background-color: #54920a;
+}
