@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 1 | Exámen</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/ejercicio1.css">
+  <link rel="icon" href="/static/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Calculo de compras</h1>
+      <form action="/ejercicio1" method="POST">
+        <label for="nombre">Ingresa tu nombre:</label>
+        <input type="text" id="nombre" name="nombre" required value="{{ formulario[0] }}">
+        <label for="edad">Ingresa tu edad:</label>
+        <input type="text" id="edad" name="edad" required value="{{ formulario[1] }}">
+        <label for="cantidad">Ingresa la cantidad de tarros de pintura a comprar:</label>
+        <input type="text" id="cantidad" name="cantidad" required value="{{ formulario[2] }}">
+        <button type="submit">Calcular</button>
+      </form>
+
+      {% if respuesta %}
+        {% for detalle in respuesta %}
+          <div class="respuesta">
+            {{ detalle }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+    </div>
+  </main>
+</body>
+
+</html>
