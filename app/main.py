@@ -1,9 +1,11 @@
 """Fichero principal del proyecto flask.
 """
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
+from app.credentials import CREDENTIALS
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "MYSECRETKEY"
 
 @app.route("/", methods=["GET"])
 def inicio() -> str:
@@ -61,6 +63,36 @@ def ejercicio_1_post() -> str:
     except Exception as ex:
         respuesta = ["Error al procesar el formulario"]
     return render_template("ejercicio1.html", formulario=formulario, respuesta=respuesta)
+
+@app.route("/ejercicio2", methods=["GET"])
+def ejercicio_2() -> str:
+    """Retorna el render de la página del ejercicio 2.
+
+    Returns:
+        str: Página renderizada.
+    """
+    return render_template("ejercicio2.html")
+
+@app.route("/ejercicio2", methods=["POST"])
+def ejercicio2_login() -> str:
+    """Realiza login y muestra página del ejercicio 2.
+
+    Returns:
+        str: Página renderizada.
+    """
+    form = request.form
+    nombre = form["nombre"].strip()
+    contrasenia = form["contrasenia"].strip()
+    # validate nombre
+    if nombre not in CREDENTIALS:
+        return render_template("ejercicio2.html", respuesta="Usuario o contraseña incorrectos")
+    # validate password
+    if CREDENTIALS[nombre]["password"] != contrasenia:
+        return render_template("ejercicio2.html", respuesta="Usuario o contraseña incorrectos")
+    # agregar a sesion y retornar
+    session["nombre"] = nombre
+    grupo = CREDENTIALS[nombre]["group"]
+    return render_template("ejercicio2.html", respuesta=f"Bienvenido {grupo} {nombre}")
 
 if __name__ == '__main__':
     app.run(debug=True)
