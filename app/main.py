@@ -2,7 +2,7 @@
 """
 
 from flask import Flask, render_template, request, session
-from app.credentials import CREDENTIALS
+from credentials import CREDENTIALS
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "MYSECRETKEY"

@@ -1,9 +1,7 @@
 # IPLACEX - Programación Web - Exámen
 
-Este repositorio contiene el desarrollo del exámen 3 de la asignatura
+Este repositorio contiene el desarrollo del exámen de la asignatura
 `Programación web`.
-
-El desarrollo está aún curso.
 
 ## Datos
 
@@ -48,7 +46,3 @@ python3 app/main.py
 ```
 http://localhost:5000/
 ```
-
-## Capturas de pantalla
-
-(Pendiente)
